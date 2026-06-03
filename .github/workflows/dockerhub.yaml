@@ -1,0 +1,27 @@
+name: DockerHub Push
+
+on:
+  push:
+
+jobs:
+
+  docker:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Login DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Image
+        run: docker build -t ankan123basu/myapp:latest .
+
+      - name: Push Image
+        run: docker push ankan123basu/myapp:latest
