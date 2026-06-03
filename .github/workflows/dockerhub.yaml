@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Image
-        run: docker build -t ankan123basu/myapp:latest .
+        run: docker build -t ankan0210/myapp:latest .
 
       - name: Push Image
-        run: docker push ankan123basu/myapp:latest
+        run: docker push ankan0210/myapp:latest
